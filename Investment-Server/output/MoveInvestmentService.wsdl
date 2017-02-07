@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MoveInvestmentService" targetNamespace="http://MoveInvestmentService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://MoveInvestmentService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://MoveInvestmentService/" schemaLocation="MoveInvestmentService_schema1.xsd"></import>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="investmentValue">
+    <wsdl:part name="parameters" element="tns:investmentValue">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="investmentValueResponse">
+    <wsdl:part name="parameters" element="tns:investmentValueResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MoveInvestment">
+    <wsdl:operation name="investmentValue">
+      <wsdl:input name="investmentValue" message="tns:investmentValue">
+    </wsdl:input>
+      <wsdl:output name="investmentValueResponse" message="tns:investmentValueResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MoveInvestmentServiceSoapBinding" type="tns:MoveInvestment">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="investmentValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="investmentValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="investmentValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MoveInvestmentService">
+    <wsdl:port name="MoveInvestmentPort" binding="tns:MoveInvestmentServiceSoapBinding">
+      <soap:address location="http://localhost:9090/MoveInvestmentPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

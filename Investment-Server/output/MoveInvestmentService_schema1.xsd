@@ -1,0 +1,26 @@
+<xs:schema xmlns:tns="http://MoveInvestmentService/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://MoveInvestmentService/" version="1.0">
+
+  <xs:element name="investmentValue" type="tns:investmentValue"></xs:element>
+
+  <xs:element name="investmentValueResponse" type="tns:investmentValueResponse"></xs:element>
+
+  <xs:complexType name="investmentValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="investmentValueResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:stock"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stock">
+    <xs:sequence>
+      <xs:element name="latestPrice" type="xs:double"></xs:element>
+      <xs:element name="previousPrice" type="xs:double"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
